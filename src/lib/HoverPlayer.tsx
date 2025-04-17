@@ -46,9 +46,10 @@ export default function HoverPlayer() {
   if (!hoverInfo.element) return null;
 
   const { top, left, heightOfFirstLine, element } = hoverInfo;
-  console.log(top, left, element);
+  // console.log(top, left, element);
 
   const handlePlay = () => {
+    console.log(element)
     if(element) {
       speechify(element);
     }
@@ -56,7 +57,7 @@ export default function HoverPlayer() {
 
   return (
     <div>
-      <button onClick={handlePlay} style={{ position: 'absolute', top: top, left, zIndex: 10000 }}><PlayButton /></button>
+      <button onClick={handlePlay} style={{ position: 'absolute', top: top, left: left, zIndex: 10000, cursor: 'pointer' }}><PlayButton /></button>
     </div>
   )
 }

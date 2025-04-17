@@ -26,8 +26,8 @@ export function isPointInsideElement(
   element: HTMLElement
 ): boolean {
   const rect = getElementBounds(element);
-  
-  if((coordinate.x > rect.left && coordinate.x < rect.left + rect.width) && (coordinate.y > rect.top && coordinate.y > rect.top + rect.height)) {
+
+  if ((coordinate.x > rect.left && coordinate.x < rect.left + rect.width) && (coordinate.y > rect.top && coordinate.y > rect.top + rect.height)) {
     return true;
   } else {
     return false;
@@ -42,7 +42,7 @@ export function getLineHeightOfFirstLine(element: HTMLElement): number {
   const range = document.createRange();
   const textMode = element.firstChild;
 
-  if(!textMode || textMode.nodeType !== Node.TEXT_NODE) {
+  if (!textMode || textMode.nodeType !== Node.TEXT_NODE) {
     return getElementBounds(element).height;
   }
 
@@ -51,14 +51,14 @@ export function getLineHeightOfFirstLine(element: HTMLElement): number {
 
   const rects = range.getClientRects();
 
-  if(rects.length > 0) {
+  if (rects.length > 0) {
     return rects[0].height;
   }
 
   const computedStyle = window.getComputedStyle(element);
   const lineWeight = parseFloat(computedStyle.lineHeight);
 
-  if(!isNaN(lineWeight)) {
+  if (!isNaN(lineWeight)) {
     return lineWeight;
   }
 
@@ -91,7 +91,8 @@ export function useHoveredParagraphCoordinate(
   useEffect(() => {
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      if(target && parsedElements.includes(target)) {
+
+      if (target && parsedElements.includes(target)) {
         const rect = getElementBounds(target);
         setHoverInfo({
           top: rect.top + window.scrollY,
@@ -104,7 +105,7 @@ export function useHoveredParagraphCoordinate(
 
     const handleMouseOut = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      if(target && parsedElements.includes(target)) {
+      if (target && parsedElements.includes(target)) {
         setHoverInfo({
           top: 0,
           left: 0,

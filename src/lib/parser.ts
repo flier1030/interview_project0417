@@ -9,7 +9,7 @@ const IGNORE_LIST = [
   "H4",
   "H5",
   "H6",
-  "BUTTON",
+  // "BUTTON",
   "LABEL",
   "SPAN",
   "IMG",
@@ -49,6 +49,7 @@ export function getTopLevelReadableElementsOnPage(): HTMLElement[] {
 
   const readableElements = allEments.filter(el => {
     const tag = el.tagName.toUpperCase();
+
     if (IGNORE_LIST.includes(tag)) return false;
 
     const style = window.getComputedStyle(el);
